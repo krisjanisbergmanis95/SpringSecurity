@@ -1,0 +1,40 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+	<form action="#" th:action="@{/product/insertOneProduct}"
+		th:object="${product}" method="post">
+		
+		<table>
+		
+			<tr> 
+				<td>Please insert title </td>
+				<td> <input type="text" th:field="*{title}"> </td>
+				<td th:if="${#fields.hasErrors('title')}" th:errors="*{title}"> </td>
+			</tr>
+		
+			<tr> 
+				<td>Please insert price </td>
+				<td> <input type="text" th:field="*{price}"> </td>
+				<td th:if="${#fields.hasErrors('price')}" th:errors="*{price}"> </td>
+			</tr>
+		
+			<tr>
+				<td> Please choose the type of the Product </td>
+				<td> 
+				<select name="type">
+				<option th:each="type : ${T(com.example.demo.models.enums.ProductType).values()}
+				" th:value = "${type}" th:text="${type}">
+				</option>
+				
+				</select>
+				
+				
+				</td>
+			</tr>
+		
+		
+		</table>
+		
+		<input type="submit">
+	</form>
+</body>
+</html>

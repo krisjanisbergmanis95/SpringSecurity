@@ -1,0 +1,27 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+	<form action="#" th:action="@{/customer/register}"
+		th:object="${customer}" method="post">
+		
+		<table>
+		
+			<tr> 
+				<td>Please insert name </td>
+				<td> <input type="text" th:field="*{name}"> </td>
+				<td th:if="${#fields.hasErrors('name')}" th:errors="*{name}"> </td>
+			</tr>
+		
+			<tr> 
+				<td>Please insert age </td>
+				<td> <input type="text" th:field="*{age}"> </td>
+				<td th:if="${#fields.hasErrors('age')}" th:errors="*{age}"> </td>
+			</tr>
+		
+				
+		
+		</table>
+		
+		<input type="submit">
+	</form>
+</body>
+</html>
